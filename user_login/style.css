@@ -1,0 +1,124 @@
+/* * {
+    font-family: "Gotham Round Book", "sans-serif";
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: black;
+}
+
+::selection {
+    background: 0;
+}
+
+
+body {
+    width: 100%;
+    min-height: 560px;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    background-color:  black;
+    overflow-x: hidden;
+}
+
+section {
+    min-height: 520px;
+    min-width: 450px;
+    padding: 15px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    border-radius: 10px;
+    background: white;
+    overflow: hidden;
+    position: relative;
+}
+
+#logo {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 30px;
+}
+
+nav {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+nav label {
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+nav label:first-child {
+    margin-right: 20px;
+}
+
+form {
+    position: absolute;
+    min-width: 320px;
+    transform: translateX(140%);
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+}
+
+#SignIn:checked ~ section #SignInFormData, #SignUp:checked ~ section #SignUpFormData {
+    transform: translateX(15%);
+}
+
+#SignIn:checked ~ section nav label:first-child, #SignUp:checked ~ section nav label:last-child {
+    margin-bottom: -2px;
+    border-bottom: 2px solid #1ed760;
+}
+
+input, button {
+    color: black;
+    border-radius: 50px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+button {
+    background: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+form span {
+    margin-left: 20px;
+    display: inline;
+}
+
+form span label {
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: lowercase;
+}
+
+
+input[type="checkbox"] {
+    cursor: pointer;
+    accent-color: #1ed760;
+}
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+    cursor: pointer;
+    text-align: center;
+    opacity: 0.6;
+}
+
+a:hover {
+    opacity: 1;
+} */

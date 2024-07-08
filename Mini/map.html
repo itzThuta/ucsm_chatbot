@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ 
+  <link rel="stylesheet" href="nav.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">-->
+  
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+   <link rel="stylesheet" href="footer.css">
+  <title>Campus Map</title>
+  <style>
+          .search-field::before{
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: -4px;
+    height: 14px;
+    width: 15px;
+    background-color: var(--nav-color);
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+
+.search-field input{
+    height: 34px;
+    width: 240px;
+    padding: 0 45px 0 15px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--search-text);
+    background-color: var(--search-bar);
+}
+
+ .searchToggle.active ~ .search-field{
+    bottom: -74px;
+    opacity: 1;
+    width: 250px;
+    pointer-events: auto;
+}
+        .searchBox .search-field{
+    position: absolute;
+    bottom: -85px;
+    right: 5px;
+    height: 50px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    --av-color:rgb(203, 199, 199);
+    background-color: var(--av-color);
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+button{
+          border:none;
+          background-color: #64b9fa;
+          outline:none;
+          cursor: pointer;
+         position: absolute;
+        }
+        i{
+            margin:9px;
+        }
+    #map{
+      text-align: center;
+      font-weight: 500;
+      color:black;
+      padding: 70px 0px;
+    }
+    h2{
+      color:black;
+    }
+    @media screen and (max-width : 767px) {
+      iframe{
+        width:550px;
+        height: 800px;
+      }
+    }
+  </style>
+</head>
+<body style="background-color: lightgrey;">
+  <nav>
+    <div class="nav-bar">
+        <i class='bx bx-menu sidebarOpen' ></i>
+        <span class="logo navLogo"><img src='ucsm1.png' alt="UCSM" style="margin-right: 7px;">UCSM</span>
+
+        <div class="menu">
+            <div class="logo-toggle">
+                <span class="logo">UCSM</span>
+                <i class='bx bx-x siderbarClose'></i>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="info.html">Campus Information</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="../user_login/dashboard_home.php">UCSM ChatBot</a></li>
+                <li><a href="aboutus.php">About Us</a></li>
+            </ul>
+        </div>
+
+        <div class="darkLight-searchBox">
+            <div class="dark-light">
+                <i class='bx bx-moon moon'></i>
+                <i class='bx bx-sun sun'></i>
+            </div>
+
+            <div class="searchBox">
+               <div class="searchToggle">
+                <i class='bx bx-x cancel'></i>
+                <i class='bx bx-search search'></i>
+               </div>
+                <div class="search-field">
+                      <form action="se.php" method="POST">
+                    <input type="text" name="a" placeholder="Search...">
+                    <button><i class='bx bx-search'></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<div id="map">
+  <h2>Campus Map of UCSM</h2>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d17152.458917232078!2d96.1819876853648!3d22.125986884768867!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb427795555555%3A0x43d0104d46b79bfc!2z4YCZ4YCU4YC54YCQ4YCc4YCx4YC44YCA4YC94YCU4YC64YCV4YC74YCw4YCQ4YCs4YCQ4YCA4YC54YCA4YCe4YCt4YCv4YCc4YC6!5e0!3m2!1smy!2smm!4v1704705622481!5m2!1smy!2smm" width="1500" height="600" style="border:4;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+   
+</div>
+<script src="script.js"></script>
+
+
+  
+</body>
+</html>

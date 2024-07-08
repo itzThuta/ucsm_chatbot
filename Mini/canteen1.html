@@ -1,0 +1,518 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+   <head>
+      <meta charset="UTF-8">
+      <title>canteen1</title>
+      <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="information.css" />
+   
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+   
+    <style>
+      
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease;;
+}
+
+
+
+:root{
+    --body-color: grey;
+    --nav-color: #2f1fe4;
+    --side-nav: #010718;
+    --text-color: #FFF;
+    --search-bar: #F2F2F2;
+    --search-text: #010718;
+}
+
+body{
+    height: 100vh;
+    background-color: var(--body-color);
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body.dark{
+    --body-color: #18191A;
+    --nav-color: #242526;
+    --side-nav: #242526;
+    --text-color: #CCC;
+    --search-bar: #242526;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-color: var(--nav-color);
+    z-index: 100;
+}
+
+body.dark nav{
+    border: 1px solid #393838;
+
+}
+
+nav .nav-bar{
+    position: relative;
+    height: 100%;
+    max-width: 1000px;
+    width: 100%;
+    background-color: var(--nav-color);
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    
+}
+
+nav .nav-bar .sidebarOpen{
+    color: var(--text-color);
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+nav .nav-bar .logo{
+    color: var(--text-color);
+    font-size: 35px;
+    font-weight: 700;
+}
+
+img{
+  width: 50px;
+  height: 50px;
+  object-position: 50%;
+  margin-right: -100px;
+  margin-top: 1px;
+  vertical-align: middle;
+}
+
+.menu .logo-toggle{
+    display: none;
+}
+
+.nav-bar .nav-links{
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar .nav-links li{
+    margin: 0 5px;
+    list-style: none;
+}
+
+.nav-links li a{
+    position: relative;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav-links li a::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-links li:hover a::before{
+    opacity: 1;
+}
+
+.nav-bar .darkLight-searchBox{
+    display: flex;
+    align-items: center;
+}
+
+.darkLight-searchBox .dark-light,
+.darkLight-searchBox .searchToggle{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.dark-light i,
+.searchToggle i{
+    position: absolute;
+    color: var(--text-color);
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: fixed;
+}
+
+.dark-light i.sun{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dark-light.active i.sun{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dark-light.active i.moon{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchToggle i.cancel{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchToggle.active i.cancel{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.searchToggle.active i.search{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchBox{
+    position: relative;
+}
+
+.searchBox .search-field{
+    position: absolute;
+    bottom: -85px;
+    right: 5px;
+    height: 50px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    --av-color:rgb(203, 199, 199);
+    background-color: var(--av-color);
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.searchToggle.active ~ .search-field{
+    bottom: -74px;
+    opacity: 1;
+    width: 250px;
+    pointer-events: auto;
+}
+
+.search-field::before{
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: -4px;
+    height: 14px;
+    width: 15px;
+    background-color: var(--nav-color);
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+.search-field input{
+    height: 34px;
+    width: 240px;
+    padding: 0 45px 0 15px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--search-text);
+    background-color: var(--search-bar);
+}
+
+body.dark .search-field input{
+    color: var(--text-color);
+}
+
+.search-field i{
+    position: absolute;
+    color: var(--nav-color);
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+body.dark .search-field i{
+    color: var(--text-color);
+}
+
+@media (max-width: 790px) {
+    nav .nav-bar .sidebarOpen{
+        display: block;
+    }
+
+    .menu{
+        position: fixed;
+        height: 100%;
+        width: 320px;
+        left: -100%;
+        top: 0;
+        padding: 20px;
+        background-color: var(--side-nav);
+        z-index: 100;
+        transition: all 0.4s ease;
+    }
+
+    nav.active .menu{
+        left: -0%;
+    }
+
+    nav.active .nav-bar .navLogo a{
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .menu .logo-toggle{
+        display: block;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo-toggle .siderbarClose{
+        color: var(--text-color);
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .nav-bar .nav-links{
+        flex-direction: column;
+        padding-top: 30px;
+    }
+
+    .nav-links li a{
+        display: block;
+        margin-top: 20px;
+    }
+}
+
+.searchBox .search-field button{
+          border:none;
+          background-color: #64b9fa;
+          outline:none;
+          cursor: pointer;
+         position: absolute;
+        }
+        .searchBox .search-field button i{
+            margin:9px;
+        }
+        .section-container{
+            padding-top: 50px;
+        }
+
+    
+        .custom-dropdown-container {
+        position: relative;
+        display: inline-block;
+    }
+
+
+    .custom-dropdown-button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+   
+    .custom-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f8f9fa;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+
+    .custom-dropdown-content option {
+        padding: 10px;
+        font-size: 16px;
+        display: block;
+        color: #000;
+        text-decoration: none;
+    }
+
+    .custom-dropdown-container:hover .custom-dropdown-content {
+        display: block;
+    }    
+   
+    .section-container .columns.image img{
+            padding:20px 50px;
+            overflow: hidden;
+            width: 650px;
+            height: 400px;
+            margin-right: 300px;
+        }
+
+
+        @media screen and (max-width:500px){
+    .section-container .columns.image img{
+
+        margin-bottom: 40px;
+        width: 500px;
+        height:300px;
+        }
+        .section-container .columns.content .content-container img{
+            padding-top: 50px;
+            width: 420px;
+            margin-right: 30px;
+        }
+}
+</style>
+
+</head>
+<body>
+<nav>
+ <div class="nav-bar">
+     <i class='bx bx-menu sidebarOpen' ></i>
+     <span class="logo navLogo"><img src='ucsm1.png' alt="UCSM" style="margin-right: 7px;">UCSM</span>
+
+     <div class="menu">
+         <div class="logo-toggle">
+             <span class="logo">UCSM</span>
+             <i class='bx bx-x siderbarClose'></i>
+         </div>
+
+         <ul class="nav-links">
+             <li><a href="index.html">Home</a></li>
+             <li><a href="mainbuild.html">Main Building</a></li>
+             <li><a href="parkingplace.html">Parking Place</a></li>
+             <li>
+                <div class="custom-dropdown-container">
+                    <form action="redirect.php" method="GET">
+                        <select name="dormitory" id="dormitory" class="custom-dropdown-content" onchange="this.form.submit()">
+                            <option>Select</option>
+                            <option value="maledormitory.html">Male Dormitory</option>
+                            <option value="femaledormitory.html">Female Dormitory</option>
+                        </select>
+                        <button type="submit" class="custom-dropdown-button">Select</button>
+                    </form>
+                </div>
+                
+            </li>
+            <li style="margin-right: -15px";><a href="laboratory.html">Laboratory</a></li>
+
+             <li style="margin-right: -15px";><a href="sporthall.html">Sport</a></li>
+         </ul>
+     </div>
+
+     <div class="darkLight-searchBox">
+         <div class="dark-light">
+             <i class='bx bx-moon moon'></i>
+             <i class='bx bx-sun sun'></i>
+         </div>
+
+         <div style="margin-right: -40px"; class="searchBox">
+            <div class="searchToggle">
+             <i class='bx bx-x cancel'></i>
+             <i class='bx bx-search search'></i>
+            </div>
+             <div style="margin-right: -40px"; class="search-field">
+                   <form action="se.php" method="POST">
+                 <input type="text" name="a" placeholder="Search...">
+                 <button><i class='bx bx-search'></i></button>
+             </div>
+         </div>
+     </div>
+ </div>
+</nav>
+
+<script src="script.js"></script>
+      <div class="section-container">
+         <div class="columns image" style="background-image:url('IMG/canteen.jpg')">
+            &nbsp;
+         </div>
+         <div class="columns content">
+            <div class="content-container">
+               <h5>New Canteen</h5>
+               <p>
+  Location: Located at right side of the road and west side of laboratory
+  <br>Description:<br>
+  Located opposite of the football field, the New Canteen at the University of Computer Studies, Mandalay, 
+  stands as a modern culinary hub catering to the diverse tastes and preferences of the university community.
+  Constructed in 2021, this state-of-the-art facility offers a contemporary dining experience amidst a vibrant and welcoming ambiance.
+  <br>With its spacious dining area and sleek interior design, the New Canteen provides students, faculty, and staff with a comfortable and
+   inviting space to enjoy a variety of freshly prepared meals, snacks, and beverages. Whether indulging in traditional Burmese cuisine or 
+   savoring international delicacies, visitors to the New Canteen can expect quality food made from the finest ingredients.
+  <br>Equipped with modern kitchen facilities and adhering to strict hygiene standards, the New Canteen prioritizes the health 
+  and well-being of its patrons, ensuring a safe and enjoyable dining experience for all. Additionally, its strategic location 
+  near the football field makes it a convenient stop for hungry spectators and athletes seeking refreshments during sporting events and recreational activities.
+There is only one way that can reach new canteen from main building.It is 760 meters long.</p>
+            </div>
+         </div>
+      </div>
+      <div class="section-container">
+         <div class="columns content">
+            <div class="content-container">
+               <h5>Old Canteen</h5>
+               <p>
+                  Location:  Located at left side of the road and west side of laboratory<br>
+                  Description:<br>
+                  Situated adjacent to the football field,the Old Canteen at the University of Computer Studies, Mandalay,
+              has been a beloved institution since its establishment in 1997. Steeped in nostalgia and tradition, 
+              this iconic culinary landmark holds a special place in the hearts of generations of students, faculty, and alumni.
+              <br>
+              With its quaint charm and rustic ambiance, the Old Canteen exudes a sense of warmth and familiarity, 
+              reminiscent of simpler times. Here, patrons can relish in an array of timeless favorites and classic comfort foods,
+              lovingly prepared with time-honored recipes passed down through the years.
+              <br>Despite its age, the Old Canteen remains 
+              a bustling hub of activity, bustling with lively conversations and the aromatic scent of freshly cooked meals.
+              From hearty breakfasts to quick lunches and afternoon snacks, the Old Canteen continues to serve as a cherished
+              gathering spot where lifelong friendships are forged and cherished memories are made.While the New Canteen may 
+              boast modern amenities and sleek aesthetics, the Old Canteen holds a special place in the hearts of those who 
+              cherish its rich history and enduring legacy. As a testament to the university's heritage and commitment to community,
+              the Old Canteen remains a beloved institution that continues to evoke feelings of nostalgia and camaraderie among all who pass through its doors.
+              There is only one way that can reach new canteen from main building.It is 770 meters long.
+               </p>
+            </div>
+         </div>
+         <div class="columns image" style="background-image:url('Img/background.jpg')">
+            &nbsp;
+         </div>
+      </div>
+      <div class="section-container">
+         <div class="columns image">
+            &nbsp;
+            <img src="IMG/campus.jpg" alt="campus Map">
+         </div>
+         <div class="columns content">
+            <div class="content-container">
+               <img src="IMG/d.jpg" alt="Guide Line for Map">
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!--Font Awesome CDN-->
+     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Information</title>
+    <link rel="stylesheet" href="info.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="footer.css">
+    <style>
+        .container{
+            margin-top: 20px;
+            width: 1200px;
+            height: 550px;
+            text-align: justify;
+        }
+        :root{
+    --body-color:lightgrey;
+    --nav-color: #2f1fe4;
+    --side-nav: #010718;
+    --text-color: #FFF;
+    --search-bar: #F2F2F2;
+    --search-text: #010718;
+}
+
+        a{
+            text-decoration: none;
+        }
+
+        @media screen and (max-width : 900px) {
+
+            .container{
+            width: 800px;
+            height: 600px;
+            transition: 2s;
+            font-family: cursive;
+            justify-content: start;
+        }
+       
+        .slide .item .content .name{
+            font-size: 30px;
+            text-align: left;
+            text-transform: uppercase;
+            font-weight: bold;
+            opacity: 0;
+            }
+        .slide .item .content .desc{
+            font-size: 10px;
+            padding-right: 50px     ;
+                }
+            }
+        @media screen and (max-width : 767px) {
+
+            .container{
+            width: 600px;
+            height: 600px;
+            transition: 2s;
+            font-family: cursive;
+            justify-content: start;
+        }
+       
+        .slide .item .content .name{
+             font-size: 20px;
+            text-align: left;
+            text-transform: uppercase;
+            font-weight: bold;
+            opacity: 0;
+            }
+        .slide .item .content .desc{
+            font-size: 5px;
+            padding-right: 50px     ;
+        }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><img src='IMG/ucsm1.png' alt="UCSM" style="margin-right: 7px;">UCSM</span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo">UCSM</span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="info.html">Campus Information</a></li>
+                    <li><a href="map.html">Map</a></li>
+                    <li><a href="../user_login/dashboard_home.php">UCSM ChatBot</a></li>
+                    <li><a href="aboutus.php">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+     
+   <div class="container">
+
+       <div class="slide">
+
+           
+             <div class="item" style="background-image: url(IMG/sport.jpg);">
+                <div class="content">
+                    <div class="name">Sport Hall</div>
+                    <div class="des">In the northwest corner of the University of Computer Studies, Mandalay (UCSM) campus, the </div>
+                    <a href="sporthall.html"> <button>See More</button></a>
+                </div>
+             </div>
+           <div class="item" style="background-image: url(IMG/mainbuilding.jpg);">
+            <div class="content">
+                <div class="name">Main Building</div>
+                <div class="des">The central hub of the University of Computer Studies, Mandalay</div>
+                <a href="mainbuild.html"> <button>See More</button></a>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(IMG/parking.jpg);">
+            <div class="content">
+                <div class="name">Parking Place</div>
+                <div class="des">Conveniently positioned at the center of the University of Computer Studies, Mandalay </div>
+                <a href="parkingplace.html"> <button>See More</button></a>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(IMG/male2.jpg);">
+            <div class="content">
+                <div class="name">Male Dormitory</div>
+                <div class="des">Nestled in the northeast corner of the University of Computer Studies, Mandalay</div>
+                <a href="maledormitory.html"><button>See More</button></a>
+            </div>
+        </div>
+           <div class="item" style="background-image: url(IMG/fm1.jpg);">
+               <div class="content">
+                   <div class="name">Female Dormitory</div>
+                   <div class="des">Nestled in the scenic northwest corner of the University of Computer Studies, Mandalay </div>
+                   <a href="femaledormitory.html"><button>See More</button></a>
+               </div>
+           </div>
+           <div class="item" style="background-image: url(IMG/phylabA.jpg);">
+               <div class="content">
+                   <div class="name">Laboratory</div>
+                   <div class="des">Nestled in the northwest quadrant of the University of Computer Studies, Mandalay (UCSM) !</div>
+                   <a href="laboratory.html"><button>See More</button></a>
+               </div>
+           </div>
+           <div class="item" style="background-image: url(IMG/canteen.jpg);">
+               <div class="content">
+                   <div class="name">Canteen</div>
+                   <div class="des">Situated in the  northwest corner of the University of Computer Studies, Mandalay (UCSM) </div>
+                   <a href="canteen1.html"><button>See More</button></a>
+               </div>
+           </div>
+          
+       </div>
+
+       <div class="button">
+           <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+           <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+       </div>
+
+   </div>
+
+   <script src="app.js"></script>
+   <script src="script.js"></script>
+</body>
+</html>

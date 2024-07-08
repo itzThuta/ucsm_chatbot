@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" type="text/css" href="videoedit.css">
+    <link rel="stylesheet" href="footer.css">
+    
+    <!-- ===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+     <title>UCSM Campus Navigation and Information System</title>
+     <style>
+        :root{
+    --body-color: lightgrey;
+    --nav-color: #2f1fe4;
+    --side-nav: #010718;
+    --text-color: #FFF;
+    --search-bar: #F2F2F2;
+    --search-text: #010718;
+}
+        
+        .home_details{
+        color: #3f3d3d;
+        font-family: inherit;
+        font-size: 50px;
+        padding: 70px 5px 5px 70px;
+        }
+
+        body.dark .home_details{
+            color:#F2F2F2;
+        }
+        .search-field::before{
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: -4px;
+    height: 14px;
+    width: 15px;
+    background-color: var(--nav-color);
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+
+.search-field input{
+    height: 34px;
+    width: 240px;
+    padding: 0 45px 0 15px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--search-text);
+    background-color: var(--search-bar);
+}
+
+ .searchToggle.active ~ .search-field{
+    bottom: -74px;
+    opacity: 1;
+    width: 250px;
+    pointer-events: auto;
+}
+        .searchBox .search-field{
+    position: absolute;
+    bottom: -85px;
+    right: 5px;
+    height: 50px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    --av-color:rgb(203, 199, 199);
+    background-color: var(--av-color);
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+        .btnHome{
+
+    font-family: inherit;
+    background-color: #F9522E;
+    padding: 13px 44px 13px 44px;
+    font-size: 18px;
+    border-style: none;
+
+    }
+    button{
+          border:none;
+          background-color: #64b9fa;
+          outline:none;
+          cursor: pointer;
+         position: absolute;
+        }
+        i{
+            margin:9px;
+        }
+    .btnHome:hover{
+    background-color: rgb(233, 15, 55);
+    cursor: pointer;
+    }
+
+    @media screen and (max-width: 1000px){
+        .home_details{
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .section{
+            
+            margin-bottom: -20px;
+        }
+    }
+
+    @media screen and (max-width: 500px){
+        .home_details{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .section{
+            
+            margin-bottom: -20px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><img src='ucsm1.png' alt="UCSM" style="margin-right: 7px;">UCSM</span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo">UCSM</span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="info.html">Campus Information</a></li>
+                    <li><a href="map.html">Map</a></li>
+                    <li><a href="../user_login/dashboard_home.php">UCSM ChatBot</a></li>
+                    <li><a href="aboutus.php">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+                <div class="searchBox">
+                   <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                   </div>
+                    <div class="search-field">
+                          <form action="se.php" method="POST">
+                        <input type="text" name="a" placeholder="Search...">
+                        <button><i class='bx bx-search'></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<script src="script.js"></script>
+
+
+<h1 class="home_details">UCSM Campus Navigation and Information System </h1>
+<div class="section">
+
+    <video autoplay loop muted class="section">
+      
+                <source src="testing1.mp4" type="video/mp4">
+
+    </video>
+
+
+</div>
+
+<footer>
+    <div class="footerInfo">
+        <div class="footerContainer">
+            <div class="footerItem">
+
+                <div class="socialInfo">
+                    <div class="mainTitle">
+                        <h4> Follow Us <span></span></h4>
+                    </div>
+                    <div class="socialItem">
+                        <div class="socialLink facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="socialLink instagram">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="socialLink twitter">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="socialInfo">
+                    <div class="mainTitle">
+                        <h4> Developer Team <span></span></h4>
+                    </div>
+                    <div class="socialItem">
+                        <a href="">@Thu Ta Zaw (UCSM ChatBot)</a>
+                        <a href="">@Kaung Htet Zaw</a>
+                        <a href="#"> @Ye Naing Win</a>
+                        <a href="#"> @Kaung Htet Swan</a>
+                        <a href="#"> @Htike Si Thu Aung</a>
+                        <a href="#"> @Khant Zin Hein</a>
+                    </div>
+                </div>
+
+                <div class="socialInfo">
+                    <div class="mainTitle">
+                        <h4> Rector Office<span></span></h4>
+                    </div>
+                    <h5 class="addressTitle">Ph:09-797111333-106</h5>
+                    <h5 class="addressTitle"> <a href="https://www.ucsm.edu.mm/">Email: studentaffairs@ucsm.edu.mm</a></h5>
+                </div>
+
+                <div class="socialInfo">
+                    <div class="mainTitle">
+                        <h4> Address <span></span></h4>
+                    </div>
+                    <h5 class="addressTitle">Mandalay-Mogok Road<br>Patheingyi Township,Mandalay-Myanmar</h5>
+                    <div class="callInfo">
+                        <h6>Call</h6> <i class="fa-solid fa-arrow-right-long"></i>
+                        <span>09-752302115</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

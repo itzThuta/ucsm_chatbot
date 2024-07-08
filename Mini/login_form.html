@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form for Admin</title>
+    <link rel="stylesheet" href="s.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Bai Jamjuree', sans-serif;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(43deg, #8e8f97 0%, #d1becf 46%, #c3c1be 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .form_main {
+            width: 400px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgb(247, 245, 245);
+            border-radius: 5px;
+            padding: 30px;
+            box-shadow: rgba(0, 0, 0, 2) 0px 22px 70px 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form_main::before {
+            position: absolute;
+            content: "";
+            width: 300px;
+            height: 300px;
+            background-color: rgb(209, 193, 255);
+            transform: rotate(45deg);
+            left: -180px;
+            top: 75px;
+            z-index: 1;
+            border-radius: 30px;
+            box-shadow: 5px 5px 10px rgba(24, 1, 1, 0.082);
+        }
+
+        .heading {
+            font-size: 3rem;
+            color: #2e2e2e;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .inputContainer {
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .inputIcon {
+            position: absolute;
+            left: 3px;
+        }
+
+        .inputField {
+            width: calc(100% - 40px); /* Adjusted width for the toggle button */
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid rgb(173, 173, 173);
+            color: black;
+            font-size: 1rem;
+            font-weight: 500;
+            box-sizing: border-box;
+            padding-left: 30px;
+            transition: border-bottom .4s;
+        }
+
+        .inputField:focus {
+            outline: none;
+            border-bottom: 2px solid rgb(199, 114, 255);
+            transition: border-bottom .4s;
+        }
+
+        .inputField::placeholder {
+            color: rgb(80, 80, 80);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        #button {
+            z-index: 2;
+            position: relative;
+            width: 100px;
+            border: none;
+            background-color: rgb(155, 148, 166);
+            height: 45px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color .4s;
+        }
+
+        #button:hover {
+            background-color: rgb(227, 39, 39);
+            transition: background-color .4s;
+        }
+
+        .forgotLink {
+            z-index: 2;
+            font-size: .9rem;
+            font-weight: 500;
+            color: rgb(44, 24, 128);
+            text-decoration: none;
+            border-radius: 20px;
+        }
+
+        .togglePassword {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .togglePassword svg {
+            width: 20px;
+            height: 20px;
+            fill: #161716;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form action="login.php" method="post" class="form_main" onsubmit="return validateForm()">
+        <center><h2>Admin Login</h2></center>
+
+        <div class="inputContainer">
+            <svg class="inputIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#2e2e2e" viewBox="0 0 16 16">
+                <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"></path>
+            </svg>
+            <input type="text" class="inputField" id="username" name="username" placeholder="Username">
+        </div>
+
+        <div class="inputContainer">
+            <svg class="inputIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#2e2e2e" viewBox="0 0 16 16">
+                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+            </svg>
+            <input type="password" class="inputField" id="password" name="password" placeholder="Password">
+            <button type="button" class="togglePassword" onclick="togglePasswordVisibility()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#2e2e2e" viewBox="0 0 16 16">
+                    <path id="eye" d="M1.854 7.51c0-2.83 2.252-4.795 5.466-4.795 3.351 0 5.648 2.32 5.648 5.712 0 3.495-2.235 5.708-5.762 5.708-.86 0-1.688-.123-2.304-.335v-.862c.43.2 1.353.328 2.29.328 2.927 0 4.814-1.88 4.814-4.798 0-2.843-1.92-4.88-4.594-4.88-2.736 0-4.609 1.688-4.609 4.155 0 1.682.555 2.769 1.416 2.769.492 0 .773-.28.773-.76V5.206h1.017v.834h.11c.265-.594.88-.964 1.599-.964 1.4 0 2.378 1.162 2.378 2.823 0 1.736-.957 2.906-2.379 2.906-.8 0-1.416-.39-1.709-1.086h-.11c-.081.67-.703 1.149-1.503 1.149-1.572 0-2.57-1.415-2.57-3.642zm7.177.704c0-1.198-.54-1.908-1.457-1.908-.929 0-1.524.738-1.524 1.908 0 1.198.539 1.907 1.457 1.907.93 0 1.523-.725 1.523-1.907z"/>
+                </svg>
+            </button>
+        </div>
+
+        <button type="submit" id="button" style="width: 300px;">Login</button>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        if (username == "" || password == "") {
+            alert("Please enter both username and password.");
+            return false;
+        }
+        return true;
+    }
+
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("password");
+        var eyeIcon = document.getElementById("eye");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeIcon.setAttribute("d", "M14.146 7.854c0 2.83-2.252 4.795-5.466 4.795-3.351 0-5.648-2.32-5.648-5.712 0-3.495 2.235-5.708 5.762-5.708.86 0 1.688.123 2.304.335v.862c-.43-.2-1.353-.328-2.29-.328-2.927 0-4.814 1.88-4.814 4.798 0 2.843 1.92 4.88 4.594 4.88 2.736 0 4.609-1.688 4.609-4.155 0-1.682-.555-2.769-1.416-2.769-.492 0-.773.28-.773.76v1.654h-1.017v-.834h-.11c-.265.594-.88.964-1.599.964-1.4 0-2.378-1.162-2.378-2.823 0-1.736.957-2.906 2.379-2.906.8 0 1.416.39 1.709 1.086h.11c.081-.67.703-1.149 1.503-1.149 1.572 0 2.57 1.415 2.57 3.642zm-7.177-.704c0 1.198.54 1.908 1.457 1.908.929 0 1.524-.738 1.524-1.908 0-1.198-.539-1.907-1.457-1.907-.93 0-1.523.725-1.523 1.907z");
+        } else {
+            passwordInput.type = "password";
+            eyeIcon.setAttribute("d", "M1.854 7.51c0-2.83 2.252-4.795 5.466-4.795 3.351 0 5.648 2.32 5.648 5.712 0 3.495-2.235 5.708-5.762 5.708-.86 0-1.688-.123-2.304-.335v-.862c.43.2 1.353.328 2.29.328 2.927 0 4.814-1.88 4.814-4.798 0-2.843-1.92-4.88-4.594-4.88-2.736 0-4.609 1.688-4.609 4.155 0 1.682.555 2.769 1.416 2.769.492 0 .773-.28.773-.76V5.206h1.017v.834h.11c.265-.594.88-.964 1.599-.964 1.4 0 2.378 1.162 2.378 2.823 0 1.736-.957 2.906-2.379 2.906-.8 0-1.416-.39-1.709-1.086h-.11c-.081.67-.703 1.149-1.503 1.149-1.572 0-2.57-1.415-2.57-3.642zm7.177.704c0-1.198-.54-1.908-1.457-1.908-.929 0-1.524.738-1.524 1.908 0 1.198.539 1.907 1.457 1.907.93 0 1.523-.725 1.523-1.907z");
+        }
+    }
+</script>
+</body>
+</html>
